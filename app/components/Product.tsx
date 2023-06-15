@@ -12,6 +12,7 @@ export default function Product({
 	metadata,
 }: ProductType) {
 	const { features } = metadata;
+	const queryld = id;
 
 	return (
 		<Link
@@ -34,6 +35,19 @@ export default function Product({
 					<h2 className="text-sm text-primary">
 						{unit_amount !== null ? formatPrice(unit_amount) : "N/A"}
 					</h2>
+					<Link
+						href={{
+							pathname: `/product/${id}`,
+							query: {
+								name,
+								image,
+								unit_amount,
+								queryld,
+								description,
+								features,
+							},
+						}}
+					></Link>
 				</div>
 			</div>
 		</Link>
